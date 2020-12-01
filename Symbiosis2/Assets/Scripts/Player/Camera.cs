@@ -1,23 +1,28 @@
 ﻿/*
- File Name
-Your Name Here
-Date Last Edited
-Version Number for the File
-Very brief description of the file
+Camera.cs
+Jeremy Cates
+Last Edited: 11/30/2020
+Version #: 1.0
+Adjust the Camera to the players Head Location
 */
 
 using UnityEngine;
 
 
 /// <summary>
-/// Author: Your Name Here
-/// This is the class description.
+/// Author: Jeremy Cates
+/// Adjust the Camera to the players Head Location
 /// </summary>
 public class Camera : MonoBehaviour
 {
 
-    public Transform player;
+    public Transform player;                                                    //The player character
 
+
+    /// <summary>
+    /// Author: Jeremy Cates
+    /// Updates to the positon of the player
+    /// </summary>
     void Update()
     {
         transform.position = player.transform.position;

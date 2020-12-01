@@ -1,9 +1,9 @@
 ﻿/*
- File Name
-Your Name Here
-Date Last Edited
-Version Number for the File
-Very brief description of the file
+Ability_GrappleHook.cs
+Jeremy Cates
+Last Edited: 11/30/2020
+Version #: 1.0
+Allows the player fire off a graple hook and swing from it
 */
 
 using UnityEngine;
@@ -11,27 +11,27 @@ using UnityEngine;
 
 
 /// <summary>
-/// Author: Your Name Here
-/// This is the class description.
+/// Author: Jeremy Cates
+/// Allows the player fire off a graple hook and swing from it
 /// </summary>
 public class Ability_GrappleHook : MonoBehaviour
 {
 
-    private LineRenderer lineRenderer;
-    private Vector3 contactPoint;
-    public LayerMask grappleTerrain;
-    public Transform gunTip, camera, player;
-    private float maxDistance = 25f;
-    private SpringJoint joint;
-    private Vector3 currentGrapplePosition;
+    private Vector3 contactPoint;                                            //Point of contact that the grapple hook makes with the terrain
+    private LineRenderer lineRenderer;                                       //The Line that gets drawn from the grapple hook to the block
+    public Transform grappleLaunchPos;                                       //The position where the grapple hook launches from
+    public LayerMask grappleTerrain;                                         //Type of Terrain that the grapple hook can launch to
+    public Transform player;                                                 //The player
+    public Transform cameraForRaycast;                                       //The camera that is used for the raycast to see if the grapplehook will hit the block
+    private float maxDistance = 25f;                                         //The Max distance that the hook can be fired out to hit things
+    private Vector3 currGrapplePos;                                          //The curr position of the grappled hook
+    private SpringJoint joint;                                               //The joint used to give rotation to the player in the air
 
 
     /// <summary>
-    /// Author: Your Name Here
-    /// This is the function description.
+    /// Author: Jeremy Cates
+    /// Catches the Line Render component
     /// </summary>
-    /// <param name="Para Name Here">Param Description Here</param>
-    /// <returns>The data that this function returns</returns>
     void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -39,11 +39,9 @@ public class Ability_GrappleHook : MonoBehaviour
 
 
     /// <summary>
-    /// Author: Your Name Here
-    /// This is the function description.
+    /// Author: Jeremy Cates
+    /// This catches the input from the mouse and launches the proper function calls
     /// </summary>
-    /// <param name="Para Name Here">Param Description Here</param>
-    /// <returns>The data that this function returns</returns>
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -58,11 +56,9 @@ public class Ability_GrappleHook : MonoBehaviour
 
 
     /// <summary>
-    /// Author: Your Name Here
-    /// This is the function description.
+    /// Author: Jeremy Cates
+    /// Drawing the rope later allows the rope to get all the positional updates first and then maintain the ability to make the line not lag behind
     /// </summary>
-    /// <param name="Para Name Here">Param Description Here</param>
-    /// <returns>The data that this function returns</returns>
     void LateUpdate()
     {
         DrawRope();
@@ -70,15 +66,13 @@ public class Ability_GrappleHook : MonoBehaviour
 
 
     /// <summary>
-    /// Author: Your Name Here
-    /// This is the function description.
+    /// Author: Jeremy Cates
+    /// Fires off the grapple hook to the block as well as creates the joint and manipulates it
     /// </summary>
-    /// <param name="Para Name Here">Param Description Here</param>
-    /// <returns>The data that this function returns</returns>
     void StartGrapple()
     {
         RaycastHit hit;
-        if (Physics.Raycast(camera.position, camera.forward, out hit, maxDistance, grappleTerrain))
+        if (Physics.Raycast(cameraForRaycast.position, cameraForRaycast.forward, out hit, maxDistance, grappleTerrain))
         {
             contactPoint = hit.point;
             joint = player.gameObject.AddComponent<SpringJoint>();
@@ -87,27 +81,23 @@ public class Ability_GrappleHook : MonoBehaviour
 
             float distanceFromPoint = Vector3.Distance(player.position, contactPoint);
 
-            //The distance grapple will try to keep from grapple point. 
             joint.maxDistance = distanceFromPoint * 0.2f;
             joint.minDistance = distanceFromPoint * 0.1f;
 
-            //Adjust these values to fit your game.
             joint.spring = 4.5f;
             joint.damper = 7f;
             joint.massScale = 4.5f;
 
             lineRenderer.positionCount = 2;
-            currentGrapplePosition = gunTip.position;
+            currGrapplePos = grappleLaunchPos.position;
         }
     }
 
 
     /// <summary>
-    /// Author: Your Name Here
-    /// This is the function description.
+    /// Author: Jeremy Cates
+    /// Stops the grapple hook when the mouse is let go
     /// </summary>
-    /// <param name="Para Name Here">Param Description Here</param>
-    /// <returns>The data that this function returns</returns>
     void StopGrapple()
     {
         lineRenderer.positionCount = 0;
@@ -117,29 +107,25 @@ public class Ability_GrappleHook : MonoBehaviour
 
 
     /// <summary>
-    /// Author: Your Name Here
-    /// This is the function description.
+    /// Author: Jeremy Cates
+    /// Draws the line renderer to give the grapple hook launching and the rope connection
     /// </summary>
-    /// <param name="Para Name Here">Param Description Here</param>
-    /// <returns>The data that this function returns</returns>
     void DrawRope()
     {
-        //If not grappling, don't draw rope
         if (!joint) return;
 
-        currentGrapplePosition = Vector3.Lerp(currentGrapplePosition, contactPoint, Time.deltaTime * 8f);
+        currGrapplePos = Vector3.Lerp(currGrapplePos, contactPoint, Time.deltaTime * 8f);
 
-        lineRenderer.SetPosition(0, gunTip.position);
-        lineRenderer.SetPosition(1, currentGrapplePosition);
+        lineRenderer.SetPosition(0, grappleLaunchPos.position);
+        lineRenderer.SetPosition(1, currGrapplePos);
     }
 
 
     /// <summary>
-    /// Author: Your Name Here
-    /// This is the function description.
+    /// Author: Jeremy Cates
+    /// A Check to see if the grapple is currently connected to a grapple terrain
     /// </summary>
-    /// <param name="Para Name Here">Param Description Here</param>
-    /// <returns>The data that this function returns</returns>
+    /// <returns>Returns true if the grapple is connected to a terrain and false if not.</returns>
     public bool IsGrappling()
     {
         return joint != null;
@@ -147,11 +133,10 @@ public class Ability_GrappleHook : MonoBehaviour
 
 
     /// <summary>
-    /// Author: Your Name Here
-    /// This is the function description.
+    /// Author: Jeremy Cates
+    /// Gets the contact point made on the block when firing the grapple hook
     /// </summary>
-    /// <param name="Para Name Here">Param Description Here</param>
-    /// <returns>The data that this function returns</returns>
+    /// <returns>Returns the contact point from the hook on the block</returns>
     public Vector3 GetcontactPoint()
     {
         return contactPoint;

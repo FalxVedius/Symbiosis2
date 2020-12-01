@@ -2668,12 +2668,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1ec899de33ce74095e6e4cde260e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIsGrappleable:
+  grappleLaunchPos: {fileID: 1020603617}
+  grappleTerrain:
     serializedVersion: 2
     m_Bits: 512
-  gunTip: {fileID: 1020603617}
-  camera: {fileID: 1901137680}
   player: {fileID: 680087603}
+  cameraForRaycast: {fileID: 1901137680}
 --- !u!1 &461518555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,7 +2687,7 @@ GameObject:
   - component: {fileID: 461518557}
   - component: {fileID: 461518556}
   m_Layer: 9
-  m_Name: Cube (1)
+  m_Name: Grapple Block_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2782,7 +2782,7 @@ GameObject:
   - component: {fileID: 508802231}
   - component: {fileID: 508802230}
   m_Layer: 8
-  m_Name: Cube (7)
+  m_Name: Ground Platform_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3281,7 +3281,7 @@ GameObject:
   - component: {fileID: 1223757703}
   - component: {fileID: 1223757702}
   m_Layer: 9
-  m_Name: Cube (3)
+  m_Name: Grapple Block_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3376,7 +3376,7 @@ GameObject:
   - component: {fileID: 1247973444}
   - component: {fileID: 1247973443}
   m_Layer: 8
-  m_Name: Cube (6)
+  m_Name: Ground Platform_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3563,7 +3563,7 @@ GameObject:
   - component: {fileID: 1616994475}
   - component: {fileID: 1616994474}
   m_Layer: 9
-  m_Name: Cube
+  m_Name: Grapple Block_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3658,7 +3658,7 @@ GameObject:
   - component: {fileID: 1671560981}
   - component: {fileID: 1671560980}
   m_Layer: 9
-  m_Name: Cube (2)
+  m_Name: Grapple Block_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3898,7 +3898,7 @@ GameObject:
   - component: {fileID: 1922708447}
   - component: {fileID: 1922708446}
   m_Layer: 8
-  m_Name: Cube (5)
+  m_Name: Ground Platform_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3993,7 +3993,7 @@ GameObject:
   - component: {fileID: 2060108702}
   - component: {fileID: 2060108701}
   m_Layer: 9
-  m_Name: Cube (4)
+  m_Name: Grapple Block_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MetricLevel.unity
     guid: d5c634a17b856a54ebac001f161e22ab
+  - enabled: 1
+    path: Assets/Scenes/GrappleActionBlock.unity
+    guid: f7f13f550ba2c144f846b81d22b033a5
   m_configObjects: {}

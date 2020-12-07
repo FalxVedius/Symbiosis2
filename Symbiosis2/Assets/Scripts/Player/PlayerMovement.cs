@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public Transform playerCam;                                                                     //
+    public Transform capsuleTransform;
+    public Transform glassesTransform;
     public Transform orientation;                                                                   //
     private Rigidbody rb;                                                                           //
     private float xRotation;                                                                        //

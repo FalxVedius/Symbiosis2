@@ -13,7 +13,7 @@ using UnityEngine;
 /// Author: Jeremy Cates
 /// Adjust the Camera to the players Head Location
 /// </summary>
-public class Camera : MonoBehaviour
+public class CameraMove : MonoBehaviour
 {
 
     public Transform player;                                                    //The player character

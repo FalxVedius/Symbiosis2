@@ -336,7 +336,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16034
+  m_Name: pb_Mesh29858
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4598,6 +4598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jebseeOrientation: {fileID: 4514579140165037627}
   rigidBod: {fileID: 4514579141872820211}
+  jebseeMovement: {fileID: 4514579141872820210}
+  charSwitch: {fileID: 790603510}
 --- !u!114 &4514579141872820210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4611,6 +4613,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 1358824741}
+  capsuleTransform: {fileID: 0}
+  glassesTransform: {fileID: 0}
   orientation: {fileID: 4514579140165037627}
   moveSpeed: 4500
   maxSpeed: 15
@@ -4780,6 +4784,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5264706188308624475, guid: 9996d293038a8d14086db2a57d904b06, type: 3}
+      propertyPath: charSwitch
+      value: 
+      objectReference: {fileID: 790603510}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9996d293038a8d14086db2a57d904b06, type: 3}
 --- !u!1 &5264706188069155111 stripped

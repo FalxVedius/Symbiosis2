@@ -47,6 +47,9 @@ public class PlayerMovement : MonoBehaviour
     private float desiredX;                                                                         //
 
 
+    public bool Enabled = true;
+
+
     /// <summary>
     /// Author: Your Name Here
     /// This is the function description.
@@ -81,41 +84,44 @@ public class PlayerMovement : MonoBehaviour
     /// <returns>The data that this function returns</returns>
     private void FixedUpdate()
     {
-        rb.AddForce(Vector3.down * Time.deltaTime * 10);
-
-        Vector2 mag = FindVelRelativeToLook();
-        float xMag = mag.x, yMag = mag.y;
-
-        CounterMovement(x, y, mag);
-
-        if (readyToJump && jumping) Jump();
-
-        //Set max speed
-        float maxSpeed = this.maxSpeed;
-
-        if (crouching && grounded && readyToJump)
+        if (Enabled == true)
         {
-            rb.AddForce(Vector3.down * Time.deltaTime * 3000);
-            return;
+            rb.AddForce(Vector3.down * Time.deltaTime * 10);
+
+            Vector2 mag = FindVelRelativeToLook();
+            float xMag = mag.x, yMag = mag.y;
+
+            CounterMovement(x, y, mag);
+
+            if (readyToJump && jumping) Jump();
+
+            //Set max speed
+            float maxSpeed = this.maxSpeed;
+
+            if (crouching && grounded && readyToJump)
+            {
+                rb.AddForce(Vector3.down * Time.deltaTime * 3000);
+                return;
+            }
+
+            if (x > 0 && xMag > maxSpeed) x = 0;
+            if (x < 0 && xMag < -maxSpeed) x = 0;
+            if (y > 0 && yMag > maxSpeed) y = 0;
+            if (y < 0 && yMag < -maxSpeed) y = 0;
+
+            float multiplier = 1f, multiplierV = 1f;
+
+            if (!grounded)
+            {
+                multiplier = 0.5f;
+                multiplierV = 0.5f;
+            }
+
+            if (grounded && crouching) multiplierV = 0f;
+
+            rb.AddForce(orientation.transform.forward * y * moveSpeed * Time.deltaTime * multiplier * multiplierV);
+            rb.AddForce(orientation.transform.right * x * moveSpeed * Time.deltaTime * multiplier);
         }
-
-        if (x > 0 && xMag > maxSpeed) x = 0;
-        if (x < 0 && xMag < -maxSpeed) x = 0;
-        if (y > 0 && yMag > maxSpeed) y = 0;
-        if (y < 0 && yMag < -maxSpeed) y = 0;
-
-        float multiplier = 1f, multiplierV = 1f;
-
-        if (!grounded)
-        {
-            multiplier = 0.5f;
-            multiplierV = 0.5f;
-        }
-
-        if (grounded && crouching) multiplierV = 0f;
-
-        rb.AddForce(orientation.transform.forward * y * moveSpeed * Time.deltaTime * multiplier * multiplierV);
-        rb.AddForce(orientation.transform.right * x * moveSpeed * Time.deltaTime * multiplier);
     }
 
 
@@ -125,21 +131,24 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        x = Input.GetAxisRaw("Horizontal");
-        y = Input.GetAxisRaw("Vertical");
-        jumping = Input.GetButton("Jump");
+        if (Enabled == true)
+        {
+            x = Input.GetAxisRaw("Horizontal");
+            y = Input.GetAxisRaw("Vertical");
+            jumping = Input.GetButton("Jump");
 
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
+            float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
+            float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
 
-        Vector3 rot = playerCam.transform.localRotation.eulerAngles;
-        desiredX = rot.y + mouseX;
+            Vector3 rot = playerCam.transform.localRotation.eulerAngles;
+            desiredX = rot.y + mouseX;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
-        orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+            playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
+            orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+        }
     }
 
 
@@ -151,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
     /// <returns>The data that this function returns</returns>
     private void Jump()
     {
-        if (grounded && readyToJump)
+        if (grounded && readyToJump && Enabled)
         {
             readyToJump = false;
 
@@ -192,13 +201,6 @@ public class PlayerMovement : MonoBehaviour
     private void CounterMovement(float x, float y, Vector2 mag)
     {
         if (!grounded || jumping) return;
-
-        //Slow down sliding
-        if (crouching)
-        {
-            rb.AddForce(moveSpeed * Time.deltaTime * -rb.velocity.normalized * slideCounterMovement);
-            return;
-        }
 
         //Counter movement
         if (Math.Abs(mag.x) > threshold && Math.Abs(x) < 0.05f || (mag.x < -threshold && x > 0) || (mag.x > threshold && x < 0))
@@ -263,30 +265,33 @@ public class PlayerMovement : MonoBehaviour
     /// <returns>The data that this function returns</returns>
     private void OnCollisionStay(Collision other)
     {
-        //Make sure we are only checking for walkable layers
-        int layer = other.gameObject.layer;
-        if (whatIsGround != (whatIsGround | (1 << layer))) return;
-
-        //Iterate through every collision in a physics update
-        for (int i = 0; i < other.contactCount; i++)
+        if (Enabled == true)
         {
-            Vector3 normal = other.contacts[i].normal;
-            //FLOOR
-            if (IsFloor(normal))
+            //Make sure we are only checking for walkable layers
+            int layer = other.gameObject.layer;
+            if (whatIsGround != (whatIsGround | (1 << layer))) return;
+
+            //Iterate through every collision in a physics update
+            for (int i = 0; i < other.contactCount; i++)
             {
-                grounded = true;
-                cancellingGrounded = false;
-                normalVector = normal;
-                CancelInvoke(nameof(StopGrounded));
+                Vector3 normal = other.contacts[i].normal;
+                //FLOOR
+                if (IsFloor(normal))
+                {
+                    grounded = true;
+                    cancellingGrounded = false;
+                    normalVector = normal;
+                    CancelInvoke(nameof(StopGrounded));
+                }
             }
-        }
 
-        //Invoke ground/wall cancel, since we can't check normals with CollisionExit
-        float delay = 3f;
-        if (!cancellingGrounded)
-        {
-            cancellingGrounded = true;
-            Invoke(nameof(StopGrounded), Time.deltaTime * delay);
+            //Invoke ground/wall cancel, since we can't check normals with CollisionExit
+            float delay = 3f;
+            if (!cancellingGrounded)
+            {
+                cancellingGrounded = true;
+                Invoke(nameof(StopGrounded), Time.deltaTime * delay);
+            }
         }
     }
 

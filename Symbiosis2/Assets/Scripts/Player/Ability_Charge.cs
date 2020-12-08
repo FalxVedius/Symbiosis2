@@ -4,20 +4,19 @@ public class Ability_Charge : MonoBehaviour
 {
     public Transform jebseeOrientation;
     public Rigidbody rigidBod;
+    public PlayerMovement jebseeMovement;
+    public GameObject charSwitch;
 
     private float chargeSpeed = 200.0f;
     private float chargeTime = 0.5f;
 
-    private float currTime = 0.0f;
-    void Start()
-    {
-        
-    }
+    private bool isJebsee = false;
 
-    
+    private float currTime = 0.0f;
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift) && currTime <= 0.0f)
+        if(Input.GetKeyDown(KeyCode.LeftShift) && currTime <= 0.0f && charSwitch.GetComponent<CharacterSwitch>().GetCurrCharacter() == 1)
         {
             currTime = chargeTime;
         }
@@ -26,7 +25,10 @@ public class Ability_Charge : MonoBehaviour
         {
             currTime -= Time.deltaTime;
 
-            rigidBod.velocity = (-1*jebseeOrientation.forward) * chargeSpeed;
+            if(jebseeMovement.grounded)
+            {
+                rigidBod.velocity = (-1 * jebseeOrientation.forward) * chargeSpeed;
+            }
         }
     }
 }

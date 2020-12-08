@@ -26,6 +26,7 @@ public class Ability_GrappleHook : MonoBehaviour
     private float maxDistance = 25f;                                         //The Max distance that the hook can be fired out to hit things
     private Vector3 currGrapplePos;                                          //The curr position of the grappled hook
     private SpringJoint joint;                                               //The joint used to give rotation to the player in the air
+    public GameObject charSwitch;
 
 
     /// <summary>
@@ -44,13 +45,16 @@ public class Ability_GrappleHook : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (charSwitch.GetComponent<CharacterSwitch>().GetCurrCharacter() == 0)
         {
-            StartGrapple();
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            StopGrapple();
+            if (Input.GetMouseButtonDown(0))
+            {
+                StartGrapple();
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                StopGrapple();
+            }
         }
     }
 

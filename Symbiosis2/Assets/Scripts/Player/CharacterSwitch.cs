@@ -44,4 +44,9 @@ public class CharacterSwitch : MonoBehaviour
             }
         }
     }
+
+    public int GetCurrCharacter()
+    {
+        return currCharacter;
+    }
 }

@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
     /// <returns>The data that this function returns</returns>
     void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponentInChildren<Rigidbody>();
     }
 
 

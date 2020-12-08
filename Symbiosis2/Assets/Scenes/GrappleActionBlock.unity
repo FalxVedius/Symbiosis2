@@ -7984,6 +7984,53 @@ Transform:
   m_Father: {fileID: 447802907}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &431838997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 431838999}
+  - component: {fileID: 431838998}
+  m_Layer: 0
+  m_Name: GlobalManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &431838998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431838997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe139b4c409d7b48833f9310cdbd209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indi: {fileID: 1713604025}
+  jebsee: {fileID: 0}
+  jebseeCam: {fileID: 0}
+  indiCam: {fileID: 1713604024}
+--- !u!4 &431838999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431838997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.557547, y: -12.715942, z: 373.9651}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &434282003
 Mesh:
   m_ObjectHideFlags: 0
@@ -22356,6 +22403,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9996d293038a8d14086db2a57d904b06, type: 3}
+--- !u!1 &1713604024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5264706187362264169, guid: 9996d293038a8d14086db2a57d904b06, type: 3}
+  m_PrefabInstance: {fileID: 1713604023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1713604025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5264706187389100297, guid: 9996d293038a8d14086db2a57d904b06, type: 3}
+  m_PrefabInstance: {fileID: 1713604023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1724777802
 GameObject:
   m_ObjectHideFlags: 0

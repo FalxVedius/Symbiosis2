@@ -10,8 +10,6 @@ public class Ability_Charge : MonoBehaviour
     private float chargeSpeed = 200.0f;
     private float chargeTime = 0.5f;
 
-    private bool isJebsee = false;
-
     private float currTime = 0.0f;
 
     void Update()

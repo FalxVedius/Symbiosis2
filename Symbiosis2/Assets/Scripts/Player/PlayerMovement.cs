@@ -73,8 +73,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerScale = transform.localScale;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
 
@@ -135,21 +133,24 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Enabled == true)
         {
-            x = Input.GetAxisRaw("Horizontal");
-            y = Input.GetAxisRaw("Vertical");
-            jumping = Input.GetButton("Jump");
+            if (Time.timeScale != 0)
+            {
+                x = Input.GetAxisRaw("Horizontal");
+                y = Input.GetAxisRaw("Vertical");
+                jumping = Input.GetButton("Jump");
 
-            float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
-            float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
+                float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
+                float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
 
-            Vector3 rot = playerCam.transform.localRotation.eulerAngles;
-            desiredX = rot.y + mouseX;
+                Vector3 rot = playerCam.transform.localRotation.eulerAngles;
+                desiredX = rot.y + mouseX;
 
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+                xRotation -= mouseY;
+                xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-            playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
-            orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+                playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
+                orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+            }
         }
     }
 

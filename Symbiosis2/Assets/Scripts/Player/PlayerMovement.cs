@@ -18,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public Transform playerCam;                                                                     //
-    public Transform capsuleTransform;
-    public Transform glassesTransform;
+    public Transform model;
+
     public Transform orientation;                                                                   //
     private Rigidbody rb;                                                                           //
     private float xRotation;                                                                        //
@@ -47,6 +47,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 wallNormalVector;                                                               //
     private bool cancellingGrounded;                                                                //
     private float desiredX;                                                                         //
+
+    public float rotateSpeed = 5;
+    Vector3 offset;
+
 
 
     public bool Enabled = true;
@@ -133,24 +137,23 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Enabled == true)
         {
-            if (Time.timeScale != 0)
-            {
-                x = Input.GetAxisRaw("Horizontal");
-                y = Input.GetAxisRaw("Vertical");
-                jumping = Input.GetButton("Jump");
+            x = Input.GetAxisRaw("Horizontal");
+            y = Input.GetAxisRaw("Vertical");
+            jumping = Input.GetButton("Jump");
 
-                float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
-                float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
+            float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
+            float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
 
-                Vector3 rot = playerCam.transform.localRotation.eulerAngles;
-                desiredX = rot.y + mouseX;
+            Vector3 rot = playerCam.transform.localRotation.eulerAngles;
+            desiredX = rot.y + mouseX;
 
-                xRotation -= mouseY;
-                xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-                playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
-                orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
-            }
+            playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
+            orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+            model.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+
         }
     }
 

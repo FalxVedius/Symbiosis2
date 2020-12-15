@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GrappleActionBlock.unity
     guid: f7f13f550ba2c144f846b81d22b033a5
+  - enabled: 1
+    path: Assets/Scenes/TandemActionBlock.unity
+    guid: 001eee2bfff263d46af3498c918e1625
+  - enabled: 1
+    path: Assets/Scenes/Wade_Tandem1.unity
+    guid: a08bc0bf77e6beb4e837836e4fc3de5a
   m_configObjects: {}

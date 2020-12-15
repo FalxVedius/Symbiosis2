@@ -19,6 +19,7 @@ public class CharacterSwitch : MonoBehaviour
 
         jebseeCam.SetActive(false);
         indiCam.SetActive(true);
+        PlayerUI.instance.DisplayIndi();
     }
     void Update()
     {
@@ -32,6 +33,7 @@ public class CharacterSwitch : MonoBehaviour
 
                 jebseeCam.SetActive(true);
                 indiCam.SetActive(false);
+                PlayerUI.instance.DisplayJebsee();
             }
             else if(currCharacter == 1)
             {
@@ -41,6 +43,7 @@ public class CharacterSwitch : MonoBehaviour
 
                 jebseeCam.SetActive(false);
                 indiCam.SetActive(true);
+                PlayerUI.instance.DisplayIndi();
             }
         }
     }

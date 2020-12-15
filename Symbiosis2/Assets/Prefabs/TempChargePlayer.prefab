@@ -43,9 +43,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6429382166977630440}
-  - {fileID: 6823930323313238067}
   m_Father: {fileID: 7466617210670545701}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6429382166754124278
 MonoBehaviour:
@@ -272,6 +271,7 @@ Transform:
   m_Children:
   - {fileID: 7466617210828902385}
   - {fileID: 7466617212377139947}
+  - {fileID: 6823930323313238067}
   - {fileID: 7466617212406024291}
   - {fileID: 6429382166754124277}
   m_Father: {fileID: 0}
@@ -306,8 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 6429382166754124277}
-  capsuleTransform: {fileID: 0}
-  glassesTransform: {fileID: 0}
+  model: {fileID: 6823930323313238067}
   orientation: {fileID: 7466617212377139947}
   moveSpeed: 4500
   maxSpeed: 15
@@ -320,6 +319,7 @@ MonoBehaviour:
   slideForce: 400
   slideCounterMovement: 0.2
   jumpForce: 400
+  rotateSpeed: 5
   Enabled: 0
 --- !u!114 &7466617210670545722
 MonoBehaviour:
@@ -490,30 +490,30 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7466617210670545701}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6429382166301853656
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 6429382166754124277}
+    m_TransformParent: {fileID: 7466617210670545701}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 94b3ee1a46f13f24cb030b74957301ed, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94b3ee1a46f13f24cb030b74957301ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.009002686
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94b3ee1a46f13f24cb030b74957301ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.29
+      value: 2.7399998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94b3ee1a46f13f24cb030b74957301ed, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.18
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94b3ee1a46f13f24cb030b74957301ed, type: 3}
       propertyPath: m_LocalRotation.w

@@ -18,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public Transform playerCam;                                                                     //
-    public Transform capsuleTransform;
-    public Transform glassesTransform;
+    public Transform model;
+
     public Transform orientation;                                                                   //
     private Rigidbody rb;                                                                           //
     private float xRotation;                                                                        //
@@ -48,6 +48,10 @@ public class PlayerMovement : MonoBehaviour
     private bool cancellingGrounded;                                                                //
     private float desiredX;                                                                         //
 
+    public float rotateSpeed = 5;
+    Vector3 offset;
+
+
 
     public bool Enabled = true;
 
@@ -75,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
         playerScale = transform.localScale;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
     }
 
 
@@ -150,6 +155,8 @@ public class PlayerMovement : MonoBehaviour
 
             playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
             orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+            model.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+
         }
     }
 

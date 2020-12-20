@@ -32,6 +32,8 @@ public class PlayerUI : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        AudioManager.instance.PlaySound("Music_Gameplay");
     }
 
 
@@ -62,6 +64,7 @@ public class PlayerUI : MonoBehaviour
         Debug.Log("Game Paused");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        AudioManager.instance.PauseSound("Music_Gameplay");
     }
 
     public void ResumeGame()
@@ -74,11 +77,16 @@ public class PlayerUI : MonoBehaviour
         Debug.Log("Game Resumed");
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
+        AudioManager.instance.ResumeSound("Music_Gameplay");
     }
+
     public void LoadScene(string scene)
     {
         SceneManager.LoadScene(scene);
+        if(Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
     }
 
     public void DisplayIndi()

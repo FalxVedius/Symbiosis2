@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 33f4d4e56fa4bf24493f1f5b7baefd83
   - enabled: 1
+    path: Assets/Scenes/TutorialLevel.unity
+    guid: e16913cbd3583af4ebbbd32c4b184906
+  - enabled: 1
     path: Assets/Scenes/MetricLevel.unity
     guid: d5c634a17b856a54ebac001f161e22ab
   - enabled: 1
@@ -20,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Wade_Tandem1.unity
     guid: a08bc0bf77e6beb4e837836e4fc3de5a
+  - enabled: 1
+    path: Assets/Scenes/Nick_Level_BioRunOff.unity
+    guid: 77dbf25148d16be4290ccb1e3327fc7d
   m_configObjects: {}

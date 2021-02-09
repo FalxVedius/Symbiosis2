@@ -5,6 +5,7 @@ using UnityEngine;
 public class PressurePlates : MonoBehaviour
 {
     public GameObject disabledObject;
+    public bool holdPlate = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +19,16 @@ public class PressurePlates : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         disabledObject.gameObject.SetActive(false);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (holdPlate)
+        {
+            disabledObject.gameObject.SetActive(true);
+        }
     }
 }

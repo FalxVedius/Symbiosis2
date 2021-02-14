@@ -7,16 +7,30 @@ public class PressurePlates : MonoBehaviour
     public GameObject disabledObject;
     public bool holdPlate = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool isMultiPlate;
+    public GameObject MultiPlateManager;
 
-    // Update is called once per frame
-    void Update()
+    public bool IsLiquidTubeControl;
+    public GameObject[] LiquidTubes;
+    int TubeNumber = 0;
+
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        //Activats conveyor belt system
+        if (IsLiquidTubeControl == true)
+        {
+            SendLiquidTube();
+            return;
+        }
+
+        //Increases the number of currently active pressure plates
+        if(isMultiPlate == true)
+        {
+            MultiPlateManager.GetComponent<MultiPlateManager_Script>().ManagePlates(1);
+            return;
+        }
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -30,5 +44,21 @@ public class PressurePlates : MonoBehaviour
         {
             disabledObject.gameObject.SetActive(true);
         }
+
+        //Decreases the number of currently active pressure plates
+        if (isMultiPlate == true)
+        {
+            MultiPlateManager.GetComponent<MultiPlateManager_Script>().ManagePlates(-1);
+            return;
+        }
+
     }
+
+    //Activats conveyor belt system
+    private void SendLiquidTube()
+    {
+        LiquidTubes[TubeNumber].GetComponent<OverheadTrack_Script>().isMoving = true;
+        TubeNumber++;
+    }
+
 }

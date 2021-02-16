@@ -9,6 +9,7 @@ public class PlayerUI : MonoBehaviour
     public static PlayerUI instance;
     [SerializeField] GameObject winMenu;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject optionsMenu;
     [SerializeField] GameObject playerReticle;
     [SerializeField] Image avatarImage;
     [SerializeField] Sprite jebAvatar;
@@ -74,6 +75,7 @@ public class PlayerUI : MonoBehaviour
         isPaused = !isPaused;
         playerReticle.SetActive(true);
         pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
         Debug.Log("Game Resumed");
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

@@ -28,6 +28,8 @@ public class Ability_GrappleHook : MonoBehaviour
     private SpringJoint joint;                                               //The joint used to give rotation to the player in the air
     public GameObject charSwitch;
 
+    public LayerMask lightCheck;                                             //Used in the Tutorial to teach camera movement
+
 
     /// <summary>
     /// Author: Jeremy Cates
@@ -94,6 +96,22 @@ public class Ability_GrappleHook : MonoBehaviour
 
             lineRenderer.positionCount = 2;
             currGrapplePos = grappleLaunchPos.position;
+        }
+
+        if (Physics.Raycast(cameraForRaycast.position, cameraForRaycast.forward, out hit, maxDistance, lightCheck))
+        {
+           if(!TutorialManager.instance.firstLight && TutorialManager.instance.tutLights[0].GetComponent<LightCheck>().isActive && hit.collider.gameObject == TutorialManager.instance.tutLights[0])
+            {
+                TutorialManager.instance.CheckFirstLight();
+            }
+           else if (!TutorialManager.instance.secondLight && TutorialManager.instance.tutLights[1].GetComponent<LightCheck>().isActive && hit.collider.gameObject == TutorialManager.instance.tutLights[1])
+            {
+                TutorialManager.instance.CheckSecondLight();
+            }
+            else if (!TutorialManager.instance.thirdLight && TutorialManager.instance.tutLights[2].GetComponent<LightCheck>().isActive && hit.collider.gameObject == TutorialManager.instance.tutLights[2])
+            {
+                TutorialManager.instance.CheckThirdLight();
+            }
         }
     }
 

@@ -514,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 1643416615605056567}
   pauseMenu: {fileID: 1643416615266981969}
+  optionsMenu: {fileID: 1777154124081038539}
   playerReticle: {fileID: 1643416614001305458}
   avatarImage: {fileID: 8886805411843066565}
   jebAvatar: {fileID: 0}

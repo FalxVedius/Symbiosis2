@@ -18674,6 +18674,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5264706186748935721, guid: 9996d293038a8d14086db2a57d904b06, type: 3}
+      propertyPath: near clip plane
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5264706187389100297, guid: 9996d293038a8d14086db2a57d904b06, type: 3}
       propertyPath: m_Name
       value: TempGrapPlayer
@@ -35874,6 +35878,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disabledObject: {fileID: 510510609}
+  holdPlate: 0
+  isMultiPlate: 0
+  MultiPlateManager: {fileID: 0}
+  IsLiquidTubeControl: 0
+  LiquidTubes: []
 --- !u!64 &939982850
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37705,7 +37714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7466617210670545701, guid: 229368760586a594ebf9cf097e5f4879, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9131
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7466617210670545701, guid: 229368760586a594ebf9cf097e5f4879, type: 3}
       propertyPath: m_LocalPosition.y
@@ -65466,6 +65475,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disabledObject: {fileID: 1562048162}
+  holdPlate: 0
+  isMultiPlate: 0
+  MultiPlateManager: {fileID: 0}
+  IsLiquidTubeControl: 0
+  LiquidTubes: []
 --- !u!64 &1738683040
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -72793,6 +72807,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disabledObject: {fileID: 26888081}
+  holdPlate: 0
+  isMultiPlate: 0
+  MultiPlateManager: {fileID: 0}
+  IsLiquidTubeControl: 0
+  LiquidTubes: []
 --- !u!64 &1850536471
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -79004,7 +79023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4350049322196670, guid: 81279501067723a43bb567f45f07c5a0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.99081
+      value: 1.990811
       objectReference: {fileID: 0}
     - target: {fileID: 4350049322196670, guid: 81279501067723a43bb567f45f07c5a0, type: 3}
       propertyPath: m_LocalScale.y
@@ -79012,7 +79031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4350049322196670, guid: 81279501067723a43bb567f45f07c5a0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0203222
+      value: 1.2668203
       objectReference: {fileID: 0}
     - target: {fileID: 4350049322196670, guid: 81279501067723a43bb567f45f07c5a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -79020,11 +79039,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4350049322196670, guid: 81279501067723a43bb567f45f07c5a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9352002
+      value: 0.935
       objectReference: {fileID: 0}
     - target: {fileID: 4350049322196670, guid: 81279501067723a43bb567f45f07c5a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -68.125206
+      value: -66.646
       objectReference: {fileID: 0}
     - target: {fileID: 4350049322196670, guid: 81279501067723a43bb567f45f07c5a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -79053,6 +79072,10 @@ PrefabInstance:
     - target: {fileID: 4350049322196670, guid: 81279501067723a43bb567f45f07c5a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64267573689418294, guid: 81279501067723a43bb567f45f07c5a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81279501067723a43bb567f45f07c5a0, type: 3}
@@ -80361,6 +80384,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disabledObject: {fileID: 591142436}
+  holdPlate: 0
+  isMultiPlate: 0
+  MultiPlateManager: {fileID: 0}
+  IsLiquidTubeControl: 0
+  LiquidTubes: []
 --- !u!64 &2029727271
 MeshCollider:
   m_ObjectHideFlags: 0

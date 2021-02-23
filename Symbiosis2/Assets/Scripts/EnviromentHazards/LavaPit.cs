@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class LavaPit : MonoBehaviour
 {
     public CanvasGroup gameOverGroup;
+    public CheckpointManager checkpointManager;
+
     public IEnumerator FadeInGameOver(CanvasGroup _canvasGroup, float _start, float _end, float _lerp = 1f)
     {
         float timeStartLerp = Time.time;
@@ -32,11 +34,13 @@ public class LavaPit : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(5.0f);
 
-        string scene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(scene);
+        //string scene = SceneManager.GetActiveScene().name;
+        //SceneManager.LoadScene(scene);
+        _charMove.gameObject.transform.position = checkpointManager.GetCurrentCheckpoint();
+
         _charMove.Enabled = true;
         _canvasGroup.alpha = 0;
-        Debug.Log("Reloading " + scene);
+        //Debug.Log("Reloading " + scene);
     }
 
     private void OnTriggerEnter(Collider other)

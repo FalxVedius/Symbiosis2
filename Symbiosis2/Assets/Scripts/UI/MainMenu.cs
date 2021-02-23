@@ -2,21 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+
+    public GameObject loadingScreen;
+    public ProgressBar bar;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+
     }
     //Load specified Scene
     public void LoadScene(string scene)
     {
         if (scene != "")
         {
-            SceneManager.LoadScene(scene);
+            loadingScreen.gameObject.SetActive(true);
+
+            AsyncOperation loadingScene = SceneManager.LoadSceneAsync(scene);
+
+            StartCoroutine(GetSceneLoadProgress(loadingScene));
+
             Debug.Log("Loading " + scene);
         }
         else
@@ -33,4 +44,22 @@ public class MainMenu : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
+
+
+    public IEnumerator GetSceneLoadProgress(AsyncOperation _sceneloading)
+    {
+        if(!_sceneloading.isDone)
+        {
+            float currProgress = _sceneloading.progress * 100f;
+            bar.curr = Mathf.RoundToInt(currProgress);
+
+            yield return null;
+        }
+
+        yield return new WaitForSecondsRealtime(2.0f);
+
+        loadingScreen.gameObject.SetActive(false);
+        bar.curr = 0;
+    }
+
 }

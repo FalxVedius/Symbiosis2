@@ -18,7 +18,7 @@ public class OverheadTrack_Script : MonoBehaviour
     {
         if(isMoving == true)
         {
-            float step = 5 * Time.deltaTime; 
+            float step = 15 * Time.deltaTime; 
             transform.position = Vector3.MoveTowards(transform.position, TrackStop.transform.position, step);
         }
     }
@@ -35,8 +35,9 @@ public class OverheadTrack_Script : MonoBehaviour
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.05f);
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * -25f);
     }
 
 }

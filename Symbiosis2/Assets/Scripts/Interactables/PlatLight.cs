@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatTrigger : MonoBehaviour
+public class PlatLight : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,13 +13,6 @@ public class PlatTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-      
-            TutorialManager.instance.ReachedTopPlat();
         
     }
 }

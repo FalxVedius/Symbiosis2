@@ -35,6 +35,7 @@ public class OverheadTrack_Script : MonoBehaviour
 
     IEnumerator Delay()
     {
+        yield return new WaitForSeconds(0.05f);
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
         gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * -25f);
     }

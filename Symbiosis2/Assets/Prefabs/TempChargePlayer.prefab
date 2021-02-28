@@ -297,9 +297,10 @@ GameObject:
   - component: {fileID: 7466617210670545699}
   - component: {fileID: 7466617210670545698}
   - component: {fileID: 7466617210670545722}
+  - component: {fileID: 7048049703103176457}
   m_Layer: 0
   m_Name: TempChargePlayer
-  m_TagString: Untagged
+  m_TagString: Jebsee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,6 +384,19 @@ MonoBehaviour:
   rigidBod: {fileID: 7466617210670545699}
   jebseeMovement: {fileID: 7466617210670545698}
   charSwitch: {fileID: 0}
+--- !u!135 &7048049703103176457
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7466617210670545721}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 1, z: 1}
 --- !u!1 &7466617210828902384
 GameObject:
   m_ObjectHideFlags: 0

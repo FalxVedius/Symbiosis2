@@ -30807,6 +30807,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c76a0b51a83b8054dae1bf547343d49b, type: 3}
+--- !u!114 &585648014 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4877577230699370018, guid: d783bd38f9becb24984e6bbb1ff23d07, type: 3}
+  m_PrefabInstance: {fileID: 1168860735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &588744796 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 25ed4821d0385124eac59b6c4e684fa3, type: 3}
@@ -47481,6 +47492,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 25ed4821d0385124eac59b6c4e684fa3, type: 3}
   m_PrefabInstance: {fileID: 343399987}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &916903173 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7092032556909433981, guid: d783bd38f9becb24984e6bbb1ff23d07, type: 3}
+  m_PrefabInstance: {fileID: 1168860735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &924347536
 GameObject:
   m_ObjectHideFlags: 0
@@ -59405,6 +59427,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -54.600098
       objectReference: {fileID: 0}
+    - target: {fileID: 4203000483446775315, guid: d783bd38f9becb24984e6bbb1ff23d07, type: 3}
+      propertyPath: DinoCollectablesText
+      value: 
+      objectReference: {fileID: 1759349588}
+    - target: {fileID: 4203000483446775315, guid: d783bd38f9becb24984e6bbb1ff23d07, type: 3}
+      propertyPath: PlantCollectablesText
+      value: 
+      objectReference: {fileID: 916903173}
+    - target: {fileID: 4203000483446775315, guid: d783bd38f9becb24984e6bbb1ff23d07, type: 3}
+      propertyPath: TotalDinoCollectablesText
+      value: 
+      objectReference: {fileID: 2147030540}
+    - target: {fileID: 4203000483446775315, guid: d783bd38f9becb24984e6bbb1ff23d07, type: 3}
+      propertyPath: TotalPlantCollectablesText
+      value: 
+      objectReference: {fileID: 585648014}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d783bd38f9becb24984e6bbb1ff23d07, type: 3}
 --- !u!225 &1168860736 stripped
@@ -89210,6 +89248,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1759349588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4259121021957021430, guid: d783bd38f9becb24984e6bbb1ff23d07, type: 3}
+  m_PrefabInstance: {fileID: 1168860735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1759908630
 Mesh:
   m_ObjectHideFlags: 0
@@ -105283,6 +105332,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &2147030540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 23738815865663147, guid: d783bd38f9becb24984e6bbb1ff23d07, type: 3}
+  m_PrefabInstance: {fileID: 1168860735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4514579141872820201 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7466617210670545721, guid: 229368760586a594ebf9cf097e5f4879, type: 3}

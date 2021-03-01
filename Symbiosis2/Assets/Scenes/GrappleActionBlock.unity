@@ -7948,7 +7948,7 @@ GameObject:
   - component: {fileID: 431839001}
   m_Layer: 0
   m_Name: GlobalManager
-  m_TagString: Untagged
+  m_TagString: Global
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8013,6 +8013,7 @@ MonoBehaviour:
   - {fileID: 133084218}
   - {fileID: 1564506929}
   - {fileID: 1817793199}
+  currCheckpoint: {fileID: 0}
 --- !u!43 &434282003
 Mesh:
   m_ObjectHideFlags: 0
